@@ -1,0 +1,36 @@
+type Confirmante {
+  id: ID
+  number: Int
+  code: String
+  firstName: String
+  lastName: String
+  image: String
+  group: Group
+  attendances: [Attendance]
+}
+
+""" Campos para los Confirmantes nuevos """
+input ConfirmanteInput {
+  id: ID
+  number: Int
+  code: String
+  firstName: String
+  lastName: String
+  image: String
+  group: ID
+}
+
+type Query {
+  getNumberConfirmante: Int
+  getAllConfirmante: [Confirmante]
+  getConfirmante(id: ID): Confirmante
+  getNewConfirmante: Confirmante
+}
+
+type Mutation {
+  newConfirmante(input: ConfirmanteInput): Confirmante
+  new2Confirmante: Confirmante
+  new3Confirmante: Confirmante
+  updateConfirmante(input: ConfirmanteInput): Confirmante
+  removeConfirmante(id: ID!): String
+}

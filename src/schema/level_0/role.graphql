@@ -1,0 +1,7 @@
+enum Role {
+  MASTER
+  INSTITUTION
+  MANAGER
+  CATEQUISTA
+  FAMILY
+}

@@ -1,0 +1,5 @@
+export const ROLE_MASTER = 'MASTER'
+export const ROLE_INSTITUTION = 'INSTITUTION'
+export const ROLE_MANAGER = 'MANAGER'
+export const ROLE_CATEQUISTA = 'CATEQUISTA'
+export const ROLE_FAMILY = 'FAMILY'

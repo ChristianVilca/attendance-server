@@ -1,0 +1,13 @@
+type Mounth {
+  id: ID
+  name: String
+}
+
+input MounthInput {
+  id: ID
+  name: String
+}
+
+type Query {
+  getAllMounts: [Mounth]
+}

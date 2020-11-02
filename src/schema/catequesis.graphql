@@ -1,0 +1,36 @@
+type Catequesis {
+  id: ID
+  name: String
+  year: String
+  hourStart: String
+  hourEnd: String
+  tolerance: String
+  day: String
+  image: String
+  manager: Manager
+  groups: [Group]
+}
+
+""" Campos para los Catequesiss nuevos """
+input CatequesisInput {
+  id: ID
+  name: String
+  year: String
+  hourStart: String
+  hourEnd: String
+  tolerance: String
+  day: String
+  image: String
+  manager: ID
+}
+
+type Query {
+  getAllCatequesis: [Catequesis]
+  getCatequesis(id: ID): Catequesis
+}
+
+type Mutation {
+  newCatequesis(input: CatequesisInput): Catequesis
+  updateCatequesis(input: CatequesisInput): Catequesis
+  removeCatequesis(id: ID!): String
+}

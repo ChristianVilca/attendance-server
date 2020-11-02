@@ -1,0 +1,19 @@
+type Token {
+  token: String!
+}
+
+type Usuario {
+  usuario: String
+  id: ID
+  nombre: String
+  roles: [String]
+}
+
+type Query {
+  getUser: Usuario
+}
+
+type Mutation {
+  newUser(usuario: String!, nombre: String!, password: String!, roles: [String]! ): String
+  validateUser(usuario: String!, password: String!): Token
+}

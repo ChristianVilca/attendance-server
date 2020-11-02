@@ -1,0 +1,32 @@
+type ResumeAllGroups {
+  totalConfirmantes: Int
+  totalAddConfirmantes: Int
+  totalDays: Int
+
+  daysByAll: [DaysByAll]
+
+  resumeGroups: [ResumeGroup]
+}
+
+type ResumeGroup {
+  group: Group
+  daysByGroup: [DaysByGroup]
+}
+
+type DaysByGroup {
+  day: String
+  presents: Int
+  lates: Int
+  absents: Int
+}
+
+type DaysByAll {
+  day: String
+  presents: Int
+  lates: Int
+  absents: Int
+}
+
+type Query {
+  getResumeAttendances(idCatequesis: ID, mounth: String): ResumeAllGroups
+}

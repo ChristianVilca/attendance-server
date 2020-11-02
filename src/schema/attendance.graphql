@@ -1,0 +1,36 @@
+type Attendance {
+  id: ID
+  date: String
+  confirmante: Confirmante
+  type: TypeAttendance
+}
+
+type AttendanceDate {
+  id: ID
+  date: String
+  confirmante: [Confirmante]
+  type: TypeAttendance
+}
+
+enum TypeAttendance {
+  BARRAS
+  QR
+  BUSQUEDA
+}
+
+""" Campos para la nueva asistencia """
+input AttendanceInput {
+  id: ID
+  date: String
+  confirmante: ID
+  catequesis: ID
+  type: TypeAttendance
+}
+
+type Query {
+  getAllAttendance: [Attendance]
+}
+
+type Mutation {
+  newAttendance(input: AttendanceInput): Attendance
+}

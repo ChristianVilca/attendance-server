@@ -1,0 +1,29 @@
+type Manager {
+  id: ID
+  firstName: String
+  lastName: String
+  image: String
+  code: String
+  institution: Institution
+  catequesis: [Catequesis]
+}
+
+input ManagerInput {
+  id: ID
+  firstName: String
+  lastName: String
+  image: String
+  code: String
+  institution: ID
+}
+
+type Query {
+  getAllManager: [Manager]
+  getManager(id: ID): Manager
+}
+
+type Mutation {
+  newManager(input: ManagerInput): Manager
+  updateManager(input: ManagerInput): Manager
+  removeManager(id: ID): String
+}

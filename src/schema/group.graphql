@@ -1,0 +1,29 @@
+type Group {
+  id: ID
+  name: String
+  color: String
+  image: String
+  catequesis: Catequesis
+  confirmantes: [Confirmante]
+  catequistas: [Catequista]
+}
+
+""" Campos para los Groups nuevos """
+input GroupInput {
+  id: ID
+  name: String
+  color: String
+  image: String
+  catequesis: ID
+}
+
+type Query {
+  getAllGroup: [Group]
+  getGroup(id: ID): Group
+}
+
+type Mutation {
+  newGroup(input: GroupInput): Group
+  updateGroup(input: GroupInput): Group
+  removeGroup(id: ID!): String
+}

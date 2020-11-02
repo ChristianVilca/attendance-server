@@ -1,0 +1,25 @@
+type ConfirmanteAttendance {
+  confirmante: Confirmante
+
+  presents: Int
+  lates: Int
+  absents: Int
+  absentsPre: Int
+  total: Int
+
+  details: [DetailsAttendance]
+}
+
+type DetailsAttendance {
+  number: String
+  year: String
+  mounth: String
+  day: String
+  hourStart: String
+  hourEnd: String
+  description: String
+}
+
+type Query {
+  getAllAttendanceByConfirmante(idConfirmante: ID, idCatequesis: ID): ConfirmanteAttendance
+}

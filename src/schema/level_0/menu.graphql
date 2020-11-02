@@ -1,0 +1,25 @@
+enum LocationMenu {
+  LEFT
+  RIGHT
+}
+
+type DetailsMenu {
+  name: String
+  align: String
+  url: String
+  icon: String
+}
+
+type Menu {
+  location: LocationMenu
+  details: [DetailsMenu]
+}
+
+type MenuRole {
+  role: Role
+  menu: [Menu]
+}
+
+type Query {
+  getMenu(role: Role): MenuRole
+}

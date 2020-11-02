@@ -1,0 +1,35 @@
+type Institution {
+  id: ID
+  name: String!
+  location: String
+  alias: String
+  image: String
+  demo: Boolean
+  email: String
+  qr: String
+  managers: [Manager]
+}
+
+input InstitutionInput {
+  id: ID
+  name: String!
+  location: String
+  alias: String
+  image: String
+  demo: Boolean
+  email: String
+  qr: String
+}
+
+type Query {
+  getInstitutionList(filter: String, limit: Int): [Institution]
+  getInstitutionByid(id: ID): Institution
+
+  getInstitution(id: ID): Institution
+}
+
+type Mutation {
+  newInstitution(input: InstitutionInput): Institution
+  updateInstitution(input: InstitutionInput): Institution
+  removeInstitution(id: ID): String
+}

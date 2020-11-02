@@ -1,0 +1,43 @@
+type Catequista {
+  id: ID
+  firstName: String
+  lastName: String
+  imagen: String
+  newAttendance: Boolean
+  newConfirmante: Boolean
+  updateConfirmante: Boolean
+  viewConfirmante: Boolean
+  removeConfirmante: Boolean
+  viewGeneral: Boolean
+  viewSingle: Boolean
+  viewCarnet: Boolean
+  group: Group
+}
+
+""" Campos para los Catequistas nuevos """
+input CatequistaInput {
+  id: ID
+  firstName: String
+  lastName: String
+  imagen: String
+  newAttendance: Boolean
+  newConfirmante: Boolean
+  updateConfirmante: Boolean
+  viewConfirmante: Boolean
+  removeConfirmante: Boolean
+  viewGeneral: Boolean
+  viewSingle: Boolean
+  viewCarnet: Boolean
+  group: ID
+}
+
+type Query {
+  getAllCatequista(limite: Int, offset: Int, group: String): [Catequista]
+  getCatequista(id: ID): Catequista
+}
+
+type Mutation {
+  newCatequista(input: CatequistaInput): Catequista
+  updateCatequista(input: CatequistaInput): Catequista
+  removeCatequista(id: ID!): String
+}
