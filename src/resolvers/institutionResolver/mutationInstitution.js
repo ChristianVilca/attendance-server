@@ -1,5 +1,8 @@
 import { InstitutionDS } from '../../datasources/attendance-mongoDB/db'
 import { rejects } from 'assert';
+import mongoose from 'mongoose'
+
+const ObjectId = mongoose.Types.ObjectId
 
 const mutationInstitution = {
 
@@ -22,9 +25,11 @@ const mutationInstitution = {
       })
     })
   },
+  //updateInstitution: (root, { id, input }) => {
   updateInstitution: (root, { input }) => {
     return new Promise((resolve, object) => {
-      InstitutionDS.findOneAndUpdate({ _id: input.id }, input, {new: true}, (error, registro) => {
+      //InstitutionDS.findOneAndUpdate({ _id: new ObjectId(id) }, input, {new: true}, (error, registro) => {
+      InstitutionDS.findOneAndUpdate({ _id: new ObjectId(input.id) }, input, {new: true}, (error, registro) => {
         if (error) rejects(error)
         else resolve(registro)
       })

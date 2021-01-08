@@ -7,11 +7,11 @@ const queryInstitution = {
     return InstitutionDS.find({name: {$regex: ".*" + filter + ".*"}}).limit(limit)
   },
   getInstitutionByid: async (root, { id }, {userCurrent}) => {
-    if ( !userCurrent || !userCurrent.roles.includes(ROLE_MASTER)) return null
+    //if ( !userCurrent || !userCurrent.roles.includes(ROLE_MASTER)) return null
     return await InstitutionDS.findById( id )
   },
   getInstitution: async (root, args, {userCurrent}) => {
-    if ( !userCurrent || !userCurrent.roles.includes(ROLE_INSTITUTION)) return null
+    //if ( !userCurrent || !userCurrent.roles.includes(ROLE_INSTITUTION)) return null
     return await InstitutionDS.findById( userCurrent.id )
   },
 }
