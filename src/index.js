@@ -4,9 +4,9 @@ import { ApolloServer } from 'apollo-server-express'
 import { typeDefs } from './schema'
 import { resolvers } from './resolvers/resolvers'
 import { UserDS } from './datasources/attendance-mongoDB/db'
-/* import config from './index.config'
+//import config from './index.config'
 import https from 'https'
-var fs = require('fs') */
+var fs = require('fs')
 
 //console.log(typeDefs)
 //
@@ -41,12 +41,12 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app })
 
-app.listen({ port: 4000 }, '192.168.0.3' , () => console.log(`El servidor esta funcionando http://localhost:4000${server.graphqlPath}`))
-
-/* https.createServer({
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.cert')
+/* app.listen({ port: 4000 }, '192.168.0.3' , () => console.log(`El servidor esta funcionando http://localhost:4000${server.graphqlPath}`))
+ */
+https.createServer({
+  key: fs.readFileSync(__dirname + '/server.key'),
+  cert: fs.readFileSync(__dirname + '/server.cert')
 }, app)
 .listen(4000, '192.168.0.3', function () {
-  console.log('Example app listening on port 3000! Go to https://localhost:3000/')
-}) */
+  console.log('Example app listening on port 3000! Go to https://192.168.0.3:4000/')
+})
