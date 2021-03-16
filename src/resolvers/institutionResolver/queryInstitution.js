@@ -6,7 +6,7 @@ const queryInstitution = {
     if ( !userCurrent || !userCurrent.roles.includes(ROLE_MASTER)) return null
     return InstitutionDS.find({name: {$regex: ".*" + filter + ".*"}}).limit(limit)
   },
-  getInstitutionByid: async (root, { id }, {userCurrent}) => {
+  getInstitutionById: async (root, { id }, {userCurrent}) => {
     //if ( !userCurrent || !userCurrent.roles.includes(ROLE_MASTER)) return null
     return await InstitutionDS.findById( id )
   },

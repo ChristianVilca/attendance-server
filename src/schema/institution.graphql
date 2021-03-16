@@ -23,7 +23,7 @@ input InstitutionInput {
 
 type Query {
   getInstitutionList(filter: String, limit: Int): [Institution]
-  getInstitutionByid(id: ID): Institution
+  getInstitutionById(id: ID): Institution
 
   getInstitution(id: ID): Institution
 }
