@@ -7,6 +7,7 @@ type Usuario {
   id: ID
   nombre: String
   roles: [String]
+  menu: [String]
 }
 
 type Query {

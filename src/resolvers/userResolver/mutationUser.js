@@ -3,12 +3,12 @@ import bcrypt from "bcrypt";
 import { UserDS } from '../../datasources/attendance-mongoDB/db'
 
 const newToken = (usuarioLogin, secreto, expiresIn) => {
-  const {usuario, roles} = usuarioLogin
-  return jwt.sign({usuario, roles}, secreto, {expiresIn})
+  const {usuario, roles, menu} = usuarioLogin
+  return jwt.sign({usuario, roles, menu}, secreto, {expiresIn})
 }
 
 const mutationUser = {
-   newUser: async(root, {usuario, nombre, password, roles}) => {
+   newUser: async(root, {usuario, nombre, password, roles, menu}) => {
     const existeUsuario = await UserDS.findOne({usuario})
 
     if(existeUsuario) {
@@ -19,7 +19,8 @@ const mutationUser = {
       usuario,
       nombre,
       password,
-      roles
+      roles,
+      menu
     }).save()
 
     return "Creado correctamente"

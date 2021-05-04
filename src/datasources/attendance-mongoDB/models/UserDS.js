@@ -5,7 +5,8 @@ const usuariosSchema = new mongoose.Schema({
   usuario: String,
   nombre: String,
   password: String,
-  roles: Array
+  roles: Array,
+  menu: Array
 })
 
 usuariosSchema.pre('save', function(next){
